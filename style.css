@@ -1,0 +1,101 @@
+body{
+    background-color: black;
+}
+
+/* .parent{
+    width: 100%;
+    position: relative;
+} */
+
+#tasks{
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 3em;
+}
+
+#list{
+    color: whitesmoke;
+    /* font-weight: bolder; */
+    font-size: 3em;
+}
+
+
+
+/* .circle{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #00A5EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.main{
+    display: flex;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+}
+
+.plus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #4D88E7;
+    border: 1px solid #4D88E7;
+    padding: 0;
+    /* margin-right: 10px; */
+    /* padding: 0% 0% 0% 0%; */
+}
+
+.plus span {
+    display: block;
+    line-height: 1; 
+    font-size: xx-large;
+  }
+
+
+
+.textp{
+    font-weight: 900px; 
+    font-size: 2em; 
+    padding-left: 13px;
+    
+    color: #646464;
+    background-color: black;
+    border: 1px solid black;
+    width: 150px;
+}
+
+
+/* .add{
+    display: flex;
+    align-items: center;
+    /* padding: 20px 0px 0px 1150px; */
+    /* margin: 10px;} */
+    
+
+.one{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4em;
+    /* align-items: center; */
+}
+
+.no-items-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #666666;
+    font-size: 1.2rem;
+    display: none; /* Hide the message initially */
+  }
+  

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App JS</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        .popupbox{
+            position: fixed;
+            top: 15rem;
+            left: 35rem;
+            width: 380px;
+            height: 220px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            text-align: center;
+            /* border: 1px solid black; */
+        }
+
+        
+
+        #newtasktext{
+            color: #BD2128;
+            margin-top: 40px;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        #addbutton{
+            width: 100px;
+            height: 40px;
+            font-size: x-large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+            margin-right: 15px;
+        }
+
+        #closebutton{
+            width: 100px;
+            height: 40px;
+            font-size: x-large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+        }
+
+        .show{
+            display: block;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        .card{
+            width: 220px;
+            height: 340px;
+            border: 1px solid black;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .cardcontainer{
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 75%;
+            margin-left: 12rem;
+            margin-top: 2rem;
+            /* width: 100%; */
+            /* border: 2px solid red; */
+
+        }
+
+        #cardname{
+            width: 20em;
+            height: 3em;
+            text-align: center;
+            margin-top: 7px;
+            margin-bottom: 15px;
+            border: 1px solid #C69D99;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #C69D99;
+        }
+
+        input::placeholder {
+        font-size: 10px; 
+        }
+
+        .cardaddbutton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bolder;
+        font-size: larger;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: #4D88E7;
+        border: 1px solid #4D88E7;
+        padding: 0;
+        }
+
+        .domdeletebutton{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* color: white;
+            font-weight: bolder;
+            font-size: larger; */
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: #F75A3E;
+            border: 1px solid #F75A3E;
+            padding: 0;
+        }
+
+        .h5tag{
+            margin-bottom: 0;
+            margin-top: 5px;
+            text-align: center;
+            color: #EB9EA4;
+            font-weight: lighter;
+        }
+
+        .mainparentblur{
+           filter: blur(5px);
+            
+        }
+
+        /* second popupbox */
+
+        .popupboxa{
+            position: fixed;
+            top: 15rem;
+            left: 37rem;
+            width: 380px;
+            height: 220px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            text-align: center;
+            /* border: 1px solid black; */
+        }
+
+        .hidea{
+            display: none;
+        }
+
+        
+        #newtasktexta{
+            color: #BD2128;
+            margin-top: 40px;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        #cardnamea{
+            width: 20em;
+            height: 3em;
+            text-align: center;
+            margin-top: 7px;
+            margin-bottom: 15px;
+            border: 1px solid #C69D99;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #C69D99;
+        }
+
+        #addbuttona{
+            width: 100px;
+            height: 40px;
+            font-size: x-large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+            margin-right: 15px;
+        }
+
+        #closebuttona{
+            width: 100px;
+            height: 40px;
+            font-size: x-large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+        }
+
+        /* Add this CSS to your existing styles */
+
+        .item-list {
+            margin-top: 10px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .mark-done-button {
+            background-color: #4D88E7;
+            border: none;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<!-- <div class="parent"> -->
+    <div id="mainparent">
+    <div class="one">
+    <div id="head">
+        <span id="tasks">Tasks</span> <span id="list">List</span>
+     </div>
+
+     <div class="main">
+        <div class="button-container">
+        <button class="plus" onclick="showAddTask()"><span>+</span></button>
+      
+        <button class="textp" onclick="showAddTask()">Add Item</button> 
+        
+    </div>
+    </div>
+
+</div>
+
+<div id="noItemsMessage" class="no-items-message">No items to display.</div>
+
+<div id="cardcontainer" class="cardcontainer"></div>
+
+</div>
+
+        <div id="popupbox" class="popupbox  hide">
+            <h2 id="newtasktext">Add New List</h2>
+            <input id="cardname" type="text" placeholder="Add New List" autocomplete="off"><br>
+            <button onclick="addCard()" id="addbutton">Add</button>
+            <button onclick="hideAddTask()" id="closebutton">Close</button>
+        </div>
+
+        <!-- second popupbox -->
+
+        <div id="popupboxa" class="popupboxa  hidea">
+            <h2 id="newtasktexta">Add New Item</h2>
+            <input id="cardnamea" type="text" placeholder="Add New Item" autocomplete="off"><br>
+            <button id="addbuttona">Add</button>
+            <button onclick="hideAddTaska()" id="closebuttona">Close</button>
+        </div>
+
+
+
+
+    
+    <script src="./script.js"></script>
+</body>
+</html>
