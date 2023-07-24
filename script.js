@@ -4,6 +4,9 @@ const newCardName = document.getElementById("cardname");
 let cardID = 0;
 const addTaskPopupa = document.getElementById("popupboxa");
 const newCardNamea = document.getElementById("cardnamea");
+let newCardId = null;
+//const newItemInput = document.getElementById("cardnamea");
+const addbuttona = document.getElementById('addbuttona');
 
 function showAddTask() {
     var mainparent = document.getElementById('mainparent');
@@ -15,6 +18,7 @@ function showAddTask() {
 }
 
 
+
 function hideAddTask() {
     addTaskPopup.classList.add("hide");
     var mainparent = document.getElementById('mainparent');
@@ -23,6 +27,12 @@ function hideAddTask() {
 }
 
 
+function markdone(button) {
+  var itemText = button.parentNode.querySelector('span');
+  itemText.style.textDecoration = "line-through";
+
+  button.style.display = "none";
+}
 // function showAddTaska() {
 //     var mainparent = document.getElementById('mainparent');
 
@@ -58,7 +68,7 @@ function addCard() {
 
     cardID++;
     var newCard = document.createElement("div");
-    var cardtitle = document.createElement("h5");
+    var cardtitle = document.createElement("h2");
     var hrLine = document.createElement('hr');
     var itemList = document.createElement("div");
     
@@ -84,9 +94,10 @@ function addCard() {
     deleteButton.classList.add('domdeletebutton');
     addItem.classList.add("cardaddbutton")
     buttonContainer.style.display = 'flex';
-    buttonContainer.style.gap = '5px';
+    buttonContainer.style.gap = '10px';
     // hrLine.style.color = '#C69D99';
     cardtitle.classList.add('h5tag')
+    buttonContainer.classList.add("buttoncontainer");
 
     // itemList.style.marginBottom = '30px'
 
@@ -102,46 +113,45 @@ function addCard() {
 
     addItem.addEventListener('click', function() {
 // newcode
+    newCardId = newCard.getAttribute("id");
     var mainparent = document.getElementById('mainparent');
     addTaskPopupa.classList.remove("hidea");
     mainparent.classList.add("mainparentblur");
-    newCardId = newCard.getAttribute("id");
+   
     });
     
-    const newItemInput = document.getElementById("cardnamea");
-    const addbuttona = document.getElementById('addbuttona');
+    
 
 
     addbuttona.onclick = function() {
-    
-    const itemText = newItemInput.value.trim();
-    if (itemText !== '') {
-    const itemListDiv = document.createElement('div');
-    itemListDiv.classList.add('item');
-    itemListDiv.innerHTML = `
-      <span>${itemText}</span>
-      <button class="mark-done-button" onclick="markdone(this)">Mark as Done</button>
-    `;
-    itemList.appendChild(itemListDiv);
-    newItemInput.value = '';
+      
+      if (newCardId !== null) {
+          const itemText = newCardNamea.value.trim();
+          if (itemText !== '') {
+             
+              const selectedCard = document.getElementById(newCardId);
+              if (selectedCard) {
+                  const itemListDiv = document.createElement('div');
+                  itemListDiv.classList.add('item');
+                  itemListDiv.innerHTML = `
+                      <span id="textcolor">${itemText}</span>
+                      <button class="mark-done-button" onclick="markdone(this)">Mark Done</button>
+                  `;
+                  const itemList = selectedCard.querySelector("div");
+                  itemList.appendChild(itemListDiv);
+                  newCardNamea.value = '';
+              }
+          }
+         
+          hideAddTaska();
+          
+          newCardId = null;
+      }
+  };
 
-    
-  }
-  hideAddTaska();
-};
-
-function markdone(button) {
-  var itemText = button.parentNode.querySelector('span');
-  itemText.style.textDecoration = "line-through";
-}
 
     checkAndShowNoItemsMessage();
 
     hideAddTask();
 }
-
-// function markdone(){
-//   var markdonebutton = document.getElementById('markdone')
-//   itemText.style.textDecoration = "line-through";
-// }
 
