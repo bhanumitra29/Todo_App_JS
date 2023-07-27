@@ -30,6 +30,7 @@ function hideAddTask() {
 function markdone(button) {
   var itemText = button.parentNode.querySelector('span');
   itemText.style.textDecoration = "line-through";
+  itemText.style.color = "#F75A3E";
 
   button.style.display = "none";
 }
