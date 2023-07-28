@@ -71,7 +71,8 @@ function addCard() {
     var cardtitle = document.createElement("h2");
     var hrLine = document.createElement('hr');
     var itemList = document.createElement("div");
-    
+
+    //var hrLine2 = document.createElement('hr');
     var buttonContainer = document.createElement("div");
     var deleteButton = document.createElement("button");
     var addItem = document.createElement("button");
@@ -81,6 +82,7 @@ function addCard() {
     newCard.appendChild(hrLine);
     newCard.appendChild(itemList)
     
+    //newCard.appendChild(hrLine2);
     newCard.appendChild(buttonContainer);
     buttonContainer.appendChild(deleteButton)
     buttonContainer.appendChild(addItem)
@@ -106,7 +108,7 @@ function addCard() {
 
     
 
-    // Add click event listener to the card heading
+   
     cardtitle.addEventListener('click', function () {
         showSelectedCard(newCard);
     });
@@ -134,11 +136,10 @@ function addCard() {
 
 
     addbuttona.onclick = function() {
-      // Check if a card is selected
+     
       if (newCardId !== null) {
           const itemText = newCardNamea.value.trim();
           if (itemText !== '') {
-              // Find the selected card using the newCardId
               const selectedCard = document.getElementById(newCardId);
               if (selectedCard) {
                   const itemListDiv = document.createElement('div');
@@ -152,15 +153,16 @@ function addCard() {
                   newCardNamea.value = '';
               }
           }
-          // Hide the addTaskPopupa
+         
           hideAddTaska();
-          // Reset the newCardId to null for the next selection
+         
           newCardId = null;
+
+          
       }
   };
 
   function showSelectedCard(selectedCard) {
-    // Hide all cards except the selected card
     const cards = document.querySelectorAll('.card');
     const head = document.getElementById('head');
     const cardnamepaste = document.getElementById("cardnamepaste")
@@ -184,9 +186,9 @@ function addCard() {
     const backButton = document.getElementById('backButton');
     backButton.classList.remove('hide');
 
-    // Add click event listener to the back button
     backButton.addEventListener('click', function () {
         // Show all cards and hide the back button
+        const cards = document.querySelectorAll('.card');
         const head = document.getElementById('head');
         const cardnamepaste = document.getElementById("cardnamepaste")
         const textphide = document.getElementById("textphide")
@@ -203,9 +205,27 @@ function addCard() {
     
 }
 
+function showCards() {
+    const cards = document.querySelectorAll('.card');
+    const head = document.getElementById('head');
+    const cardnamepaste = document.getElementById("cardnamepaste")
+    const textphide = document.getElementById("textphide")
+    cards.forEach(card => {
+        card.classList.remove('selected', 'hidden');
+    });
+    backButton.classList.add('hide');
+    head.style.display = "block";
+    cardContainer.style.justifyContent = "space-between";
+    cardnamepaste.style.display = "none";
+    textphide.style.display = "block";
+}
+
+
     checkAndShowNoItemsMessage();
 
     hideAddTask();
+
+    showCards();
 }
 
 
