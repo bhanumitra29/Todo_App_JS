@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <style>
-
+        
         .popupbox{
             position: fixed;
             top: 15rem;
@@ -62,7 +62,7 @@
 
         .card{
             width: 220px;
-            min-height: 340px;
+            height: 340px;
             border: 1px solid black;
             background-color: white;
             border-radius: 5px;
@@ -203,15 +203,13 @@
 
         /* Add this CSS to your existing styles */
 
-        /* .item-list {
+        .item-list {
             margin-top: 10px;
-        } */
+        }
 
         .item {
             display: flex;
             justify-content: space-evenly;
-            /* flex-direction: column; */
-            flex-grow: 1;
             align-items: center;
             margin-bottom: 5px;
         }
@@ -227,7 +225,7 @@
         }
 
         #textcolor{
-            color: black;
+            color: #F75A3E;
         }
 
         .buttoncontainer{
@@ -235,6 +233,17 @@
             top: 18rem;
             left: 9rem;
         }
+
+      /* Add these styles to control the visibility of selected and hidden cards */
+.selected {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
 
 
     </style>
@@ -247,11 +256,14 @@
         <span id="tasks">Tasks</span> <span id="list">List</span>
      </div>
 
+     <button id="backButton" class="hide">Back</button>
+     <h2 id="cardnamepaste"></h2>
+
      <div class="main">
         <div class="button-container">
         <button class="plus" onclick="showAddTask()"><span>+</span></button>
       
-        <button class="textp" onclick="showAddTask()">Add Item</button> 
+        <button class="textp" id="textphide" onclick="showAddTask()">Add Item</button> 
         
     </div>
     </div>

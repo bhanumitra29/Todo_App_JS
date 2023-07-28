@@ -86,7 +86,7 @@ body{
 
 .one{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-top: 4em;
     /* align-items: center; */
 }
@@ -97,5 +97,9 @@ body{
     color: #666666;
     font-size: 1.2rem;
     display: none; /* Hide the message initially */
+  }
+
+  #cardnamepaste{
+    color: white;
   }
   

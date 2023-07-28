@@ -30,7 +30,6 @@ function hideAddTask() {
 function markdone(button) {
   var itemText = button.parentNode.querySelector('span');
   itemText.style.textDecoration = "line-through";
-  itemText.style.color = "#F75A3E";
 
   button.style.display = "none";
 }
@@ -104,6 +103,15 @@ function addCard() {
 
 
     cardtitle.innerText = newCardName.value;
+
+    
+
+    // Add click event listener to the card heading
+    cardtitle.addEventListener('click', function () {
+        showSelectedCard(newCard);
+    });
+
+
     // deleteButton.innerText = "<i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>"
     addItem.innerText = "+";
 
@@ -118,6 +126,7 @@ function addCard() {
     var mainparent = document.getElementById('mainparent');
     addTaskPopupa.classList.remove("hidea");
     mainparent.classList.add("mainparentblur");
+
    
     });
     
@@ -125,11 +134,11 @@ function addCard() {
 
 
     addbuttona.onclick = function() {
-      
+      // Check if a card is selected
       if (newCardId !== null) {
           const itemText = newCardNamea.value.trim();
           if (itemText !== '') {
-             
+              // Find the selected card using the newCardId
               const selectedCard = document.getElementById(newCardId);
               if (selectedCard) {
                   const itemListDiv = document.createElement('div');
@@ -143,16 +152,62 @@ function addCard() {
                   newCardNamea.value = '';
               }
           }
-         
+          // Hide the addTaskPopupa
           hideAddTaska();
-          
+          // Reset the newCardId to null for the next selection
           newCardId = null;
       }
   };
 
+  function showSelectedCard(selectedCard) {
+    // Hide all cards except the selected card
+    const cards = document.querySelectorAll('.card');
+    const head = document.getElementById('head');
+    const cardnamepaste = document.getElementById("cardnamepaste")
+    const textphide = document.getElementById("textphide")
+    cards.forEach(card => {
+        if (card === selectedCard) {
+            card.classList.add('selected');
+            head.style.display = "none"
+            cardContainer.style.justifyContent="center"
+            cardnamepaste.innerText= cardtitle.innerText;
+            cardnamepaste.style.display="block";
+            textphide.style.display ="none"
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    // Show the back button
+
+    
+    const backButton = document.getElementById('backButton');
+    backButton.classList.remove('hide');
+
+    // Add click event listener to the back button
+    backButton.addEventListener('click', function () {
+        // Show all cards and hide the back button
+        const head = document.getElementById('head');
+        const cardnamepaste = document.getElementById("cardnamepaste")
+        const textphide = document.getElementById("textphide")
+        cards.forEach(card => {
+            card.classList.remove('selected', 'hidden');
+        });
+        backButton.classList.add('hide');
+        head.style.display = "block";
+        cardContainer.style.justifyContent="space-between";
+        cardnamepaste.style.display="none"
+        textphide.style.display="block"
+    });
+
+    
+}
 
     checkAndShowNoItemsMessage();
 
     hideAddTask();
 }
+
+
+  
 
