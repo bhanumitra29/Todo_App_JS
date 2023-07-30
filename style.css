@@ -95,11 +95,14 @@ body{
     text-align: center;
     margin-top: 20px;
     color: #666666;
-    font-size: 1.2rem;
-    display: none; /* Hide the message initially */
+    font-size: 2rem;
+    display: none; 
   }
 
   #cardnamepaste{
     color: white;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 40rem;
   }
   

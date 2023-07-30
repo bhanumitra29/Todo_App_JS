@@ -119,6 +119,7 @@ function addCard() {
 
     deleteButton.addEventListener('click', function() {
         newCard.remove();
+        showCards();
         checkAndShowNoItemsMessage();
     });
 

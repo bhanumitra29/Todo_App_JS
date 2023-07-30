@@ -61,7 +61,7 @@
         }
 
         .card{
-            min-width: 220px;
+            width: 220px;
             min-height: 340px;
             /* flex-grow: 1; */
             border: 1px solid black;
@@ -69,6 +69,11 @@
             border-radius: 5px;
             margin-bottom: 10px;
             position: relative;
+        }
+
+        .card h2 {
+            margin-left: 10px;
+         width: 200px; 
         }
 
         
@@ -137,6 +142,8 @@
             text-align: center;
             color: #EB9EA4;
             font-weight: lighter;
+            white-space: normal;
+            word-wrap: break-word;
         }
 
         .mainparentblur{
@@ -228,19 +235,20 @@
 
         #textcolor{
             color: #F75A3E;
+            white-space: normal;
+            word-wrap: break-word;
+            width: 100px;
         }
 
         .buttoncontainer{
             /* align-self: flex-end; */
             position: absolute;
-            top: 18rem;
-            left: 9rem;
+            /* top: 18rem; */
+            right: 1rem;
+            bottom: 1rem;
         }
 
         
-        
-
-     
         .selected {
         transform: scale(1.1);
         z-index: 1;
@@ -256,6 +264,348 @@
             color: white;
             font-size: xx-large;
         }
+
+
+        @media only screen and (max-width: 1000px) and (min-width: 600px) {
+            
+            .popupbox{
+            position: fixed;
+            top: 25rem;
+            left: 12rem;
+            width: 380px;
+            height: 220px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            text-align: center;
+            /* border: 1px solid black; */
+        }
+
+        .cardcontainer{
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 90%;
+            margin-left: 2.5rem;
+            margin-top: 3rem;
+            /* width: 100%; */
+            /* border: 2px solid red; */
+
+        }
+
+        .card{
+            width: 280px;
+            min-height: 380px;
+            /* flex-grow: 1; */
+            border: 1px solid black;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .card h2 {
+            margin-left: 20px;
+            width: 220px; 
+        }
+
+        
+        .h5tag{
+            /* margin-bottom: 10px;
+            margin-top: 10px; */
+            text-align: center;
+            color: #EB9EA4;
+            font-weight: lighter;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .buttoncontainer{
+            /* align-self: flex-end; */
+            position: absolute;
+            /* top: 18rem; */
+            right: 1rem;
+            bottom: 1rem;
+        }
+
+        .popupboxa{
+            position: fixed;
+            top: 25rem;
+            left: 12rem;
+            width: 380px;
+            height: 220px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            text-align: center;
+            /* border: 1px solid black; */
+        }
+
+        #textcolor{
+            color: #F75A3E;
+            white-space: normal;
+            word-wrap: break-word;
+            width: 100px;
+        }
+
+        #cardnamepaste{
+        color: white;
+        white-space: normal;
+        word-wrap: break-word;
+        width: 17rem;
+        }
+
+        .one{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 3em;
+    /* align-items: center; */
+        }
+
+    }
+
+
+    @media only screen and (max-width: 650px) and (min-width: 200px) {
+
+        .one{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2em;
+        margin-left: 1rem;
+        /* align-items: center; */
+        }
+
+        #tasks{
+        color: whitesmoke;
+        font-weight: bolder;
+        font-size: 2em;
+}
+
+        #list{
+        color: whitesmoke;
+    /* font-weight: bolder; */
+        font-size: 2em;
+        }  
+        
+        .plus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #4D88E7;
+    border: 1px solid #4D88E7;
+    padding: 0;
+    /* margin-right: 10px; */
+    /* padding: 0% 0% 0% 0%; */
+}
+
+    .plus span {
+    display: block;
+    line-height: 1; 
+    font-size: x-large;
+  }
+
+  .button-container{
+    display: flex;
+    align-items: center;
+}
+
+  .textp{
+    font-weight: 900px; 
+    font-size: 1.5em; 
+    padding-left: 0px;
+    
+    color: #646464;
+    background-color: black;
+    border: 1px solid black;
+    width: 120px;
+    }
+
+    .no-items-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #666666;
+    font-size: 1em;
+    display: none; 
+  }
+
+  .popupbox{
+            position: fixed;
+            top: 13rem;
+            left: 3.5rem;
+            width: 250px;
+            height: 150px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            text-align: center;
+            /* border: 1px solid black; */
+        }
+
+        .popupboxa{
+            position: fixed;
+            top: 13rem;
+            left: 3.5rem;
+            width: 250px;
+            height: 150px;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            text-align: center;
+            /* border: 1px solid black; */
+        }
+
+
+        #newtasktext{
+            color: #BD2128;
+            margin-top: 25px;
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: large;
+
+        }
+
+        #newtasktexta{
+            color: #BD2128;
+            margin-top: 25px;
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: large;
+        }
+
+        
+        #cardname{
+            width: 15em;
+            height: 2em;
+            text-align: center;
+            margin-top: 7px;
+            margin-bottom: 15px;
+            border: 1px solid #C69D99;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #C69D99;
+        }
+
+        input::placeholder {
+        font-size: 10px; 
+        }
+
+        #addbutton{
+            width: 80px;
+            height: 30px;
+            font-size: large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+            margin-right: 15px;
+        }
+
+        #closebutton{
+            width: 80px;
+            height: 30px;
+            font-size: large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+        }
+
+
+        #cardnamea{
+            width: 15em;
+            height: 2em;
+            text-align: center;
+            margin-top: 7px;
+            margin-bottom: 15px;
+            border: 1px solid #C69D99;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #C69D99;
+        }
+
+        #addbuttona{
+            width: 80px;
+            height: 30px;
+            font-size: large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+            margin-right: 15px;
+        }
+
+        #closebuttona{
+            width: 80px;
+            height: 30px;
+            font-size: large;
+            color: white;
+            background-color: #F75A3E;
+            border-radius: 20px;
+            border: 1px solid #F75A3E;
+            padding: 2px 10px 2px 10px;
+        }
+
+        .cardcontainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 50%;
+            margin-left: 4rem;
+            margin-top: 2rem;
+            /* width: 100%; */
+            /* border: 2px solid red; */
+
+        }
+
+        .card{
+            width: 200px;
+            min-height: 280px;
+            /* flex-grow: 1; */
+            border: 1px solid black;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .card h2 {
+            margin-left: 10px;
+         width: 180px; 
+        }
+
+        
+        .h5tag{
+            /* margin-bottom: 10px;
+            margin-top: 10px; */
+            text-align: center;
+            color: #EB9EA4;
+            font-weight: lighter;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        #textcolor{
+            color: #F75A3E;
+            white-space: normal;
+            word-wrap: break-word;
+            width: 100px;
+        }
+
+        #cardnamepaste{
+        color: white;
+        white-space: normal;
+        word-wrap: break-word;
+        width: 3rem;
+         }
+
+
+}
 
 
     </style>
@@ -282,7 +632,7 @@
 
 </div>
 
-<div id="noItemsMessage" class="no-items-message">No items to display.</div>
+<div id="noItemsMessage" class="no-items-message">No Items in the todo list</div>
 
 <div id="cardcontainer" class="cardcontainer"></div>
 
