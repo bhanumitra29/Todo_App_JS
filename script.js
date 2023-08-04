@@ -72,7 +72,7 @@ function addCard() {
     var hrLine = document.createElement('hr');
     var itemList = document.createElement("div");
 
-    //var hrLine2 = document.createElement('hr');
+    // var hrLine2 = document.createElement('hr');
     var buttonContainer = document.createElement("div");
     var deleteButton = document.createElement("button");
     var addItem = document.createElement("button");
@@ -82,19 +82,22 @@ function addCard() {
     newCard.appendChild(hrLine);
     newCard.appendChild(itemList)
     
-    //newCard.appendChild(hrLine2);
+    // newCard.appendChild(hrLine2);
     newCard.appendChild(buttonContainer);
     buttonContainer.appendChild(deleteButton)
     buttonContainer.appendChild(addItem)
     cardContainer.appendChild(newCard)
 
     
+    itemList.classList.add("itemlistHeight")
 
+    
     newCard.classList.add("card")
     deleteButton.classList.add('fa-solid','fa-trash-can')
     deleteButton.style.color = '#ffffff';
     deleteButton.classList.add('domdeletebutton');
     addItem.classList.add("cardaddbutton")
+    buttonContainer.classList.add("buttoncontainer");
     buttonContainer.style.display = 'flex';
     buttonContainer.style.gap = '10px';
     // hrLine.style.color = '#C69D99';
